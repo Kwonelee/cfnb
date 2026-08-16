@@ -2,14 +2,9 @@
 set -e
 cd /app
 
-# 从环境变量读取执行间隔（秒），默认 7 天 = 604800 秒
-# 可以通过设置环境变量 INTERVAL_SECONDS 来覆盖
-# 例如：INTERVAL_SECONDS=3600 表示每小时执行一次
-if [ -z "$INTERVAL_SECONDS" ]; then
-    INTERVAL_SECONDS=604800  # 默认 7 天
-fi
+# 从环境变量读取执行间隔（秒），默认 7 天
+INTERVAL_SECONDS=${INTERVAL_SECONDS:-604800}
 
-# 将秒数转换为可读格式，方便日志显示
 format_duration() {
     local seconds=$1
     local days=$((seconds / 86400))
