@@ -283,9 +283,9 @@ python3 main.py
 
 | 参数 | 类型 | 默认值 | 说明 |
 | :--- | :--- | :--- | :--- |
-| `HTTP_LATENCY_WEIGHT` | `float` | `3.0` | HTTP延迟在综合排序中的权重（越大越排斥高HTTP延迟） |
-| `JITTER_WEIGHT` | `float` | `3.0` | HTTP延迟抖动（标准差）在综合排序中的权重（越大越排斥延迟波动大的节点） |
-| `HTTP_JITTER_SAMPLES` | `int` | `3` | HTTP延迟抖动测试次数（至少3次，建议3~5次，越大越准但越慢） |
+| `HTTP_LATENCY_WEIGHT` | `float` | `5.0` | HTTP延迟在综合排序中的权重（越大越排斥高HTTP延迟） |
+| `JITTER_WEIGHT` | `float` | `5.0` | HTTP延迟抖动（标准差）在综合排序中的权重（越大越排斥延迟波动大的节点） |
+| `HTTP_JITTER_SAMPLES` | `int` | `5` | HTTP延迟抖动测试次数（至少3次，建议3~5次，越大越准但越慢） |
 | `SPEED_WEIGHT` | `float` | `3.0` | 带宽在综合排序中的权重（越大越看重带宽） |
 
 ### 前置过滤参数（TCP 测试前生效）
@@ -376,7 +376,7 @@ python3 main.py
 | 参数 | 类型 | 默认值 | 说明 |
 | :--- | :--- | :--- | :--- |
 | `IP_CALIBRATION_ENABLED` | `boolean` | `false` | 是否启用 IP 地区校准（基于 ipinfo.io） |
-| `TOKEN_FAILURE_THRESHOLD` | `float` | `1` | Token连续失败多少次后跳过（达到该次数则切换下一个Token） |
+| `TOKEN_FAILURE_THRESHOLD` | `float` | `3` | Token连续失败多少次后跳过（达到该次数则切换下一个Token） |
 | `IP_CALIBRATION_MIN_INTERVAL` | `float` | `0.1` | 请求最小间隔（秒） |
 | `IP_CALIBRATION_TOKEN_FILE` | `string` | `"valid_tokens.txt"` | ipinfo.io Token 文件名 |
 | `IP_CALIBRATION_CACHE_FILE` | `string` | `"ipinfo_cache.txt"` | 校准结果缓存文件名 |
