@@ -260,9 +260,9 @@ def load_config():
         "HTTP_TEST_MAX_RETRIES": 2,
         "HTTP_TEST_RETRY_DELAY": 3,
         "HTTP_TEST_METHOD": "HEAD",
-        "HTTP_LATENCY_WEIGHT": 5.0,
-        "JITTER_WEIGHT": 5.0,
-        "HTTP_JITTER_SAMPLES": 5,
+        "HTTP_LATENCY_WEIGHT": 3.0,
+        "JITTER_WEIGHT": 3.0,
+        "HTTP_JITTER_SAMPLES": 3,
         "FILTER_IPV6_AVAILABILITY": True,
         "FILTER_BLOCKED_COUNTRIES_ENABLED": True,
         "BLOCKED_COUNTRIES": [

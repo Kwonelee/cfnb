@@ -283,9 +283,9 @@ python3 main.py
 
 | 参数 | 类型 | 默认值 | 说明 |
 | :--- | :--- | :--- | :--- |
-| `HTTP_LATENCY_WEIGHT` | `float` | `5.0` | HTTP延迟在综合排序中的权重（越大越排斥高HTTP延迟） |
-| `JITTER_WEIGHT` | `float` | `5.0` | HTTP延迟抖动（标准差）在综合排序中的权重（越大越排斥延迟波动大的节点） |
-| `HTTP_JITTER_SAMPLES` | `int` | `5` | HTTP延迟抖动测试次数（至少3次，建议3~5次，越大越准但越慢） |
+| `HTTP_LATENCY_WEIGHT` | `float` | `3.0` | HTTP延迟在综合排序中的权重（越大越排斥高HTTP延迟） |
+| `JITTER_WEIGHT` | `float` | `3.0` | HTTP延迟抖动（标准差）在综合排序中的权重（越大越排斥延迟波动大的节点） |
+| `HTTP_JITTER_SAMPLES` | `int` | `3` | HTTP延迟抖动测试次数（至少3次，建议3~5次，越大越准但越慢） |
 | `SPEED_WEIGHT` | `float` | `3.0` | 带宽在综合排序中的权重（越大越看重带宽） |
 
 ### 前置过滤参数（TCP 测试前生效）

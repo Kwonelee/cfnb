@@ -186,13 +186,13 @@
     "HTTP_TEST_METHOD": "HEAD",
     "_comment_HTTP_TEST_METHOD": "HTTP 请求方法（GET 或 HEAD）",
 
-    "HTTP_LATENCY_WEIGHT": 5.0,
+    "HTTP_LATENCY_WEIGHT": 3.0,
     "_comment_HTTP_LATENCY_WEIGHT": "HTTP延迟在综合排序中的权重（越大越排斥高HTTP延迟）",
 
-    "JITTER_WEIGHT": 5.0,
+    "JITTER_WEIGHT": 3.0,
     "_comment_JITTER_WEIGHT": "HTTP延迟抖动（标准差）在综合排序中的权重（越大越排斥延迟波动大的节点）",
 
-    "HTTP_JITTER_SAMPLES": 5,
+    "HTTP_JITTER_SAMPLES": 3,
     "_comment_HTTP_JITTER_SAMPLES": "HTTP延迟抖动测试次数（至少3次，建议3~5次，越大越准但越慢）",
 
     "FILTER_IPV6_AVAILABILITY": true,
