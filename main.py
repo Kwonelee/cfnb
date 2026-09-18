@@ -1326,11 +1326,9 @@ def measure_bandwidth_curl(node_str):
                 size_bytes = float(parts[0])
                 if size_bytes < expected_size:
                     return (node_str, 0)
-                time_starttransfer = float(parts[1])
                 time_total = float(parts[2])
-                transfer_time = time_total - time_starttransfer
-                if transfer_time > 0:
-                    speed_mbps = (size_bytes * 8) / (transfer_time * 1000 * 1000)
+                if time_total > 0:
+                    speed_mbps = (size_bytes * 8) / (time_total * 1000 * 1000)
                     return (node_str, speed_mbps)
     except Exception:
         pass
