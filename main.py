@@ -988,6 +988,14 @@ def calibrate_regions(nodes, token_file, cache_file):
         print("IP 地区校准已禁用，跳过。")
         return
 
+    # ★ 先应用缓存
+    cache = load_ipinfo_cache(cache_file)
+    for i, node in enumerate(nodes):
+        ipport = node.split('#')[0]
+        tag = cache.get(ipport)
+        if tag:
+            nodes[i] = f"{ipport}#{tag.split()[0]}"
+
     token_list = load_tokens(token_file)
     if not token_list:
         print("valid_tokens.txt 为空，IP 地区校准跳过。")
@@ -1008,7 +1016,6 @@ def calibrate_regions(nodes, token_file, cache_file):
         ipport = node.split('#')[0]
         ipport_set.add(ipport)
 
-    cache = load_ipinfo_cache(cache_file)
     cached_ipports = set(cache.keys())
     new_ipports = ipport_set - cached_ipports
 
