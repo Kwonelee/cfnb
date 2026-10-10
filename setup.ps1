@@ -165,25 +165,12 @@ if ($curlCmd) {
     Write-Host "✅ curl 安装完成。" -ForegroundColor Green
 }
 
-# ---------- 4. 安装所有 Python 依赖（curl_cffi, requests, aiohttp, brotlicffi）----------
+# ---------- 4. 安装所有 Python 依赖（requests, aiohttp, brotlicffi）----------
 Write-Host "[4/4] 检查并安装 Python 依赖..." -ForegroundColor Green
 
 # 先升级 pip，确保安装过程顺畅
 Write-Host "  升级 pip..." -ForegroundColor Gray
 & $PythonExePath -m pip install --upgrade pip --quiet
-
-# 检查并安装 curl_cffi（用于模拟浏览器 TLS 指纹，解决代理握手失败）
-if (Test-PyPackage -PythonExe $PythonExePath -Module "curl_cffi") {
-    Write-Host "  ✅ curl_cffi 已安装" -ForegroundColor Gray
-} else {
-    Write-Host "  安装 curl_cffi..." -ForegroundColor Yellow
-    & $PythonExePath -m pip install curl_cffi --quiet
-    if (Test-PyPackage -PythonExe $PythonExePath -Module "curl_cffi") {
-        Write-Host "  ✅ curl_cffi 安装完成" -ForegroundColor Green
-    } else {
-        Write-Host "  ❌ curl_cffi 安装失败，请手动执行: pip install curl_cffi" -ForegroundColor Red
-    }
-}
 
 # 检查并安装 requests
 if (Test-PyPackage -PythonExe $PythonExePath -Module "requests") {

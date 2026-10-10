@@ -157,25 +157,12 @@ else
     echo -e "${GREEN}✅ curl 安装完成。${NC}"
 fi
 
-# ---------- 4. 安装所有 Python 依赖（curl_cffi, requests, aiohttp, brotlicffi）----------
+# ---------- 4. 安装所有 Python 依赖（requests, aiohttp, brotlicffi）----------
 echo -e "${GREEN}[4/4] 检查并安装 Python 依赖...${NC}"
 
 # 先升级 pip，确保安装过程顺畅
 echo -e "  升级 pip..."
 python3 -m pip install --upgrade pip --quiet
-
-# 检查并安装 curl_cffi（用于模拟浏览器 TLS 指纹，解决代理握手失败）
-if test_py_package "curl_cffi"; then
-    echo -e "  ✅ curl_cffi 已安装"
-else
-    echo -e "${YELLOW}  安装 curl_cffi...${NC}"
-    python3 -m pip install curl_cffi --quiet
-    if test_py_package "curl_cffi"; then
-        echo -e "  ✅ curl_cffi 安装完成"
-    else
-        echo -e "${RED}  ❌ curl_cffi 安装失败，请手动执行: pip install curl_cffi${NC}"
-    fi
-fi
 
 # 检查并安装 requests
 if test_py_package "requests"; then
